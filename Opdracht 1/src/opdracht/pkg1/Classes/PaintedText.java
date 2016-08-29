@@ -13,6 +13,10 @@ public class PaintedText extends DrawingItem{
     String content;
     Font font;
 
+    public PaintedText(Point anchor, Color color) {
+        super(anchor, color);
+    }
+
     public String getContent() {
         return content;
     }

@@ -13,6 +13,15 @@ public class DrawingItem {
     Point anchor;
     Color color;
     DrawingItem previousState;
+
+    public DrawingItem(Point anchor, Color color) {
+        this.anchor = anchor;
+        this.color = color;
+    }
+    
+    public void setPreviousState(){
+    this.previousState = new DrawingItem(this.anchor,this.color);
+    }
     
     // <editor-fold defaultstate="collapsed" desc=" Get Set ">
     public DrawingItem getPreviousState() {

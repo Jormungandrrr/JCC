@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
+import java.awt.Color;
+import java.awt.Point;
 import java.io.*;
 /**
  *
@@ -12,6 +14,10 @@ import java.io.*;
 public class Image extends DrawingItem {
     File file;
     double size;
+
+    public Image(Point anchor, Color color) {
+        super(anchor, color);
+    }
 
     public File getFile() {
         return file;

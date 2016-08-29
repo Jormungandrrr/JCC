@@ -14,6 +14,10 @@ public class Spline extends DrawingItem{
     int weight;
     int degree;
 
+    public Spline(Point anchor, Color color) {
+        super(anchor, color);
+    }
+
     public Point[] getPoints() {
         return points;
     }

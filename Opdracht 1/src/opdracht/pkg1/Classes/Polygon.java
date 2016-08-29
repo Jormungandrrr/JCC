@@ -13,6 +13,10 @@ public class Polygon extends DrawingItem{
     Point[] vertices;
     int weight;
 
+    public Polygon(Point anchor, Color color) {
+        super(anchor, color);
+    }
+
     public Point[] getVertices() {
         return vertices;
     }

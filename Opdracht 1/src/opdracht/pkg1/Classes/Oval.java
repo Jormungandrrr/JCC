@@ -5,6 +5,9 @@
  */
 package opdracht.pkg1.Classes;
 
+import java.awt.Color;
+import java.awt.Point;
+
 /**
  *
  * @author Jorrit
@@ -12,6 +15,10 @@ package opdracht.pkg1.Classes;
 public class Oval extends DrawingItem {
     double width;
     double height;
+
+    public Oval(Point anchor, Color color) {
+        super(anchor, color);
+    }
 
     public double getWidth() {
         return width;
