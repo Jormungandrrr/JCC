@@ -10,11 +10,17 @@ import java.awt.*;
  * @author Jorrit
  */
 public class PaintedText extends DrawingItem{
-    String content;
-    Font font;
+    private String content;
+    private Font font;
 
-    public PaintedText(Point anchor, Color color) {
+    public PaintedText(Point anchor, Color color, String content, Font font) {
         super(anchor, color);
+        this.content = content;
+        this.font = font;
+        System.out.println(this.toString());
+    }
+    public String toString() { 
+    return "Text : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Content: " + content + " Font: " + font;
     }
 
     public String getContent() {

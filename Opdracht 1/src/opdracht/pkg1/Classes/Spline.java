@@ -5,17 +5,26 @@
  */
 package opdracht.pkg1.Classes;
 import java.awt.*;
+import java.util.Arrays;
 /**
  *
  * @author Jorrit
  */
 public class Spline extends DrawingItem{
-    Point[] points;
-    int weight;
-    int degree;
+    private Point[] points;
+    private int weight;
+    private int degree;
 
-    public Spline(Point anchor, Color color) {
+    public Spline(Point anchor, Color color, Point[] points, int weight, int degree) {
         super(anchor, color);
+        this.points = points;
+        this.weight = weight;
+        this.degree = degree;
+        System.out.println(this.toString());
+    }
+    
+    public String toString() { 
+     return "Spline : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Points: " + Arrays.toString(points) + " Weight: " + weight + " Degrees: " + degree;
     }
 
     public Point[] getPoints() {

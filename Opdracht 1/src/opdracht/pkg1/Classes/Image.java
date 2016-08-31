@@ -12,12 +12,18 @@ import java.io.*;
  * @author Jorrit
  */
 public class Image extends DrawingItem {
-    File file;
-    double size;
+    private File file;
+    private double size;
 
-    public Image(Point anchor, Color color) {
+    public Image(Point anchor, Color color, File file, double size) {
         super(anchor, color);
+        this.file = file;
+        this.size = size;
+        System.out.println(this.toString());
     }
+    public String toString() { 
+    return "Image : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " File: " + file + " Size: " + size;
+} 
 
     public File getFile() {
         return file;

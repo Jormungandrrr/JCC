@@ -14,17 +14,8 @@ public class Drawing {
     private String name;
     private int width;
     private int height;
-    private List<DrawingItem> myList = new ArrayList<>();
+    public List<DrawingItem> drawitems = new ArrayList<>();
     //Get setters
-
-    public List<DrawingItem> getMyList() {
-        return myList;
-    }
-
-    public void setMyList(List<DrawingItem> myList) {
-        this.myList = myList;
-    }
-    
     public String getName() {
         return name;
     }

@@ -13,11 +13,18 @@ import java.awt.Point;
  * @author Jorrit
  */
 public class Oval extends DrawingItem {
-    double width;
-    double height;
+    private double width;
+    private double height;
 
-    public Oval(Point anchor, Color color) {
+    public Oval(Point anchor, Color color, double width, double height) {
         super(anchor, color);
+        this.width = width;
+        this.height = height;
+        System.out.println(this.toString());
+    }
+    
+    public String toString() { 
+     return "Oval : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Width: " + this.width + " Height: " + this.height;
     }
 
     public double getWidth() {

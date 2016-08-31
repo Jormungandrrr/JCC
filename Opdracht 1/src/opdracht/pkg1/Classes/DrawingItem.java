@@ -9,19 +9,36 @@ import java.awt.*;
  *
  * @author Jorrit
  */
-public class DrawingItem {
-    Point anchor;
-    Color color;
-    DrawingItem previousState;
+public abstract class DrawingItem implements Comparable<DrawingItem>{
+    private Point anchor;
+    private Color color;
+    private DrawingItem previousState;
 
     public DrawingItem(Point anchor, Color color) {
         this.anchor = anchor;
         this.color = color;
     }
     
-    public void setPreviousState(){
-    this.previousState = new DrawingItem(this.anchor,this.color);
+    //public void setPreviousState(){
+    //this.previousState = new DrawingItem(this.anchor,this.color) {};
+    //}
+    
+    @Override
+    public int compareTo(DrawingItem o) {
+      if ((this.anchor.x + this.anchor.y) < (o.anchor.x + o.anchor.y)) {
+             return -1;
+         }
+         else if ((this.anchor.x + this.anchor.y) > (o.anchor.x + o.anchor.y)) {
+             return 1;
+         }
+         else if((this.anchor.x + this.anchor.y) == (o.anchor.x + o.anchor.y)) {
+             return 0;
+         }
+         else return 0;   
     }
+
+    
+    
     
     // <editor-fold defaultstate="collapsed" desc=" Get Set ">
     public DrawingItem getPreviousState() {

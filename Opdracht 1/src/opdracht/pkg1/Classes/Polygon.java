@@ -5,16 +5,24 @@
  */
 package opdracht.pkg1.Classes;
 import java.awt.*;
+import java.util.Arrays;
 /**
  *
  * @author Jorrit
  */
 public class Polygon extends DrawingItem{
-    Point[] vertices;
-    int weight;
+    private Point[] vertices;
+    private int weight;
 
-    public Polygon(Point anchor, Color color) {
+    public Polygon(Point anchor, Color color, Point[] vertices, int weight) {
         super(anchor, color);
+        this.vertices = vertices;
+        this.weight = weight;
+        System.out.println(this.toString());
+    }
+    
+    public String toString() { 
+     return "Polygon : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Vertices: " + Arrays.toString(vertices) + " Weigtht: " + weight;
     }
 
     public Point[] getVertices() {
