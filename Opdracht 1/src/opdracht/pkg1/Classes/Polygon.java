@@ -22,7 +22,7 @@ public class Polygon extends DrawingItem{
     }
     
     public String toString() { 
-     return "Polygon : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Vertices: " + Arrays.toString(vertices) + " Weigtht: " + weight;
+     return "Polygon : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Vertices: " + Arrays.toString(vertices) + " Weigtht: " + weight;
     }
 
     public Point[] getVertices() {

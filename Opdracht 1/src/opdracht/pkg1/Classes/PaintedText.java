@@ -20,7 +20,7 @@ public class PaintedText extends DrawingItem{
         System.out.println(this.toString());
     }
     public String toString() { 
-    return "Text : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Content: " + content + " Font: " + font;
+    return "Text : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Content: " + content + " Font: " + font;
     }
 
     public String getContent() {

@@ -22,7 +22,7 @@ public class Image extends DrawingItem {
         System.out.println(this.toString());
     }
     public String toString() { 
-    return "Image : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " File: " + file + " Size: " + size;
+    return "Image : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " File: " + file + " Size: " + size;
 } 
 
     public File getFile() {

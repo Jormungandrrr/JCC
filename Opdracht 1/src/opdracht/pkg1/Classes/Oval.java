@@ -24,7 +24,7 @@ public class Oval extends DrawingItem {
     }
     
     public String toString() { 
-     return "Oval : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Width: " + this.width + " Height: " + this.height;
+     return "Oval : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Width: " + this.width + " Height: " + this.height;
     }
 
     public double getWidth() {

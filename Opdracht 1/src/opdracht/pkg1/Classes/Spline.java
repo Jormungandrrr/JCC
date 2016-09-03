@@ -24,7 +24,7 @@ public class Spline extends DrawingItem{
     }
     
     public String toString() { 
-     return "Spline : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().x + " Points: " + Arrays.toString(points) + " Weight: " + weight + " Degrees: " + degree;
+     return "Spline : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Points: " + Arrays.toString(points) + " Weight: " + weight + " Degrees: " + degree;
     }
 
     public Point[] getPoints() {

@@ -24,12 +24,12 @@ public class Opdracht1 {
     
     System.out.println("Symbolen worden getekend:");
     draw.drawitems.add(new Oval(new Point(10,10),Color.RED,10,10));
-    draw.drawitems.add(new PaintedText(new Point(10,10),Color.GREEN,"Dit is de content. ",Font.getFont(Font.SANS_SERIF)));
+    draw.drawitems.add(new PaintedText(new Point(20,10),Color.GREEN,"Dit is de content. ",Font.getFont(Font.SANS_SERIF)));
     draw.drawitems.add(new opdracht.pkg1.Classes.Polygon(new Point(5,5),Color.CYAN,pointArray,10));
-    draw.drawitems.add(new Spline(new Point(10,10),Color.orange,pointArray,10,10));
+    draw.drawitems.add(new Spline(new Point(30,1),Color.orange,pointArray,10,10));
     draw.drawitems.add(new opdracht.pkg1.Classes.Image(new Point(1,1),Color.MAGENTA,new File("image.jpg"),10.10));
     System.out.println("\n");
-    System.out.println("Lijst met getekende symbolen:");
+    System.out.println("Lijst met getekende symbolen gesorteerd:");
     Collections.sort(draw.drawitems);
     for(DrawingItem a: draw.drawitems)//printing the sorted list of names
          System.out.println(a.toString());

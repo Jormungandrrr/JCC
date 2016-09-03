@@ -19,9 +19,9 @@ public abstract class DrawingItem implements Comparable<DrawingItem>{
         this.color = color;
     }
     
-    //public void setPreviousState(){
-    //this.previousState = new DrawingItem(this.anchor,this.color) {};
-    //}
+    public void setPreviousState(){
+    this.previousState = new DrawingItem(this.anchor,this.color) {};
+    }
     
     @Override
     public int compareTo(DrawingItem o) {
