@@ -23,6 +23,12 @@ public abstract class DrawingItem implements Comparable<DrawingItem>{
     this.previousState = new DrawingItem(this.anchor,this.color) {};
     }
     
+    public void previousState()
+    {
+        this.anchor = this.previousState.anchor;
+        this.color = this.previousState.color;
+    }
+    
     @Override
     public int compareTo(DrawingItem o) {
       if ((this.anchor.x + this.anchor.y) < (o.anchor.x + o.anchor.y)) {
