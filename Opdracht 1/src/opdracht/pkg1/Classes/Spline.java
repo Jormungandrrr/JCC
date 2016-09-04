@@ -17,18 +17,54 @@ public class Spline extends DrawingItem{
 
     public Spline(Point anchor, Color color, Point[] points, int weight, int degree) {
         super(anchor, color);
-        this.points = points;
+        this.points = Arrays.copyOf(points, points.length);
         this.weight = weight;
         this.degree = degree;
         System.out.println(this.toString());
     }
     
+    @Override
     public String toString() { 
      return "Spline : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Points: " + Arrays.toString(points) + " Weight: " + weight + " Degrees: " + degree;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Arrays.deepHashCode(this.points);
+        hash = 17 * hash + this.weight;
+        hash = 17 * hash + this.degree;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Spline other = (Spline) obj;
+        if (this.weight != other.weight) {
+            return false;
+        }
+        if (this.degree != other.degree) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.points, other.points)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
     public Point[] getPoints() {
-        return points;
+        return Arrays.copyOf(points, points.length);
     }
 
     public int getWeight() {

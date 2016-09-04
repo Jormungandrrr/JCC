@@ -16,17 +16,49 @@ public class Polygon extends DrawingItem{
 
     public Polygon(Point anchor, Color color, Point[] vertices, int weight) {
         super(anchor, color);
-        this.vertices = vertices;
+        this.vertices = Arrays.copyOf(vertices, vertices.length);
         this.weight = weight;
         System.out.println(this.toString());
     }
     
+    @Override
     public String toString() { 
      return "Polygon : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Vertices: " + Arrays.toString(vertices) + " Weigtht: " + weight;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Arrays.deepHashCode(this.vertices);
+        hash = 59 * hash + this.weight;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Polygon other = (Polygon) obj;
+        if (this.weight != other.weight) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.vertices, other.vertices)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+
     public Point[] getVertices() {
-        return vertices;
+        return Arrays.copyOf(vertices, vertices.length);
     }
 
     public int getWeight() {

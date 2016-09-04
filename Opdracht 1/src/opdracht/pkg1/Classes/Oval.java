@@ -23,9 +23,41 @@ public class Oval extends DrawingItem {
         System.out.println(this.toString());
     }
     
+    @Override
     public String toString() { 
      return "Oval : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Width: " + this.width + " Height: " + this.height;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.width) ^ (Double.doubleToLongBits(this.width) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.height) ^ (Double.doubleToLongBits(this.height) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Oval other = (Oval) obj;
+        if (Double.doubleToLongBits(this.width) != Double.doubleToLongBits(other.width)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.height) != Double.doubleToLongBits(other.height)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
     public double getWidth() {
         return width;

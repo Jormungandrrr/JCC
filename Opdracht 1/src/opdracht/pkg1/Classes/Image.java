@@ -7,6 +7,7 @@ package opdracht.pkg1.Classes;
 import java.awt.Color;
 import java.awt.Point;
 import java.io.*;
+import java.util.Objects;
 /**
  *
  * @author Jorrit
@@ -21,10 +22,42 @@ public class Image extends DrawingItem {
         this.size = size;
         System.out.println(this.toString());
     }
+    @Override
     public String toString() { 
     return "Image : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " File: " + file + " Size: " + size;
-} 
+    } 
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 11 * hash + Objects.hashCode(this.file);
+        hash = 11 * hash + (int) (Double.doubleToLongBits(this.size) ^ (Double.doubleToLongBits(this.size) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Image other = (Image) obj;
+        if (Double.doubleToLongBits(this.size) != Double.doubleToLongBits(other.size)) {
+            return false;
+        }
+        if (!Objects.equals(this.file, other.file)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
     public File getFile() {
         return file;
     }

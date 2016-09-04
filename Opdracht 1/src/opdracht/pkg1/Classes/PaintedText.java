@@ -5,6 +5,7 @@
  */
 package opdracht.pkg1.Classes;
 import java.awt.*;
+import java.util.Objects;
 /**
  *
  * @author Jorrit
@@ -19,9 +20,41 @@ public class PaintedText extends DrawingItem{
         this.font = font;
         System.out.println(this.toString());
     }
+    @Override
     public String toString() { 
     return "Text : " + "Color: " + this.getColor() + " Anchor: " + this.getAnchor().x + "," + this.getAnchor().y + " Content: " + content + " Font: " + font;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.content);
+        hash = 17 * hash + Objects.hashCode(this.font);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PaintedText other = (PaintedText) obj;
+        if (!Objects.equals(this.content, other.content)) {
+            return false;
+        }
+        if (!Objects.equals(this.font, other.font)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
     public String getContent() {
         return content;

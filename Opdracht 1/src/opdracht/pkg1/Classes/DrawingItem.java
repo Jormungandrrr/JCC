@@ -5,11 +5,12 @@
  */
 package opdracht.pkg1.Classes;
 import java.awt.*;
+import java.util.Objects;
 /**
  *
  * @author Jorrit
  */
-public abstract class DrawingItem implements Comparable<DrawingItem>{
+    public class DrawingItem implements Comparable<DrawingItem>{
     private Point anchor;
     private Color color;
     private DrawingItem previousState;
@@ -19,30 +20,60 @@ public abstract class DrawingItem implements Comparable<DrawingItem>{
         this.color = color;
     }
     
-    public void setPreviousState(){
-    this.previousState = new DrawingItem(this.anchor,this.color) {};
+    public void setPreviousState(Point a, Color c)
+    {
+        this.previousState = new DrawingItem(this.anchor,this.color);
     }
     
     public void previousState()
     {
-        this.anchor = this.previousState.anchor;
-        this.color = this.previousState.color;
+        if (this.previousState != null) {
+            this.anchor = this.previousState.anchor;
+            this.color = this.previousState.color;
+        }
+        
     }
     
     @Override
     public int compareTo(DrawingItem o) {
+      int compare = 0;
       if ((this.anchor.x + this.anchor.y) < (o.anchor.x + o.anchor.y)) {
-             return -1;
+             compare = -1;
          }
-         else if ((this.anchor.x + this.anchor.y) > (o.anchor.x + o.anchor.y)) {
-             return 1;
+      else if ((this.anchor.x + this.anchor.y) > (o.anchor.x + o.anchor.y)) {
+             compare = 1;
          }
-         else if((this.anchor.x + this.anchor.y) == (o.anchor.x + o.anchor.y)) {
-             return 0;
+      else if(this.anchor.equals(o.anchor)){
+             compare = 0;
          }
-         else return 0;   
+      return compare;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.anchor);
+        return hash;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DrawingItem other = (DrawingItem) obj;
+        if (!Objects.equals(this.anchor, other.anchor)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
     
     
     
