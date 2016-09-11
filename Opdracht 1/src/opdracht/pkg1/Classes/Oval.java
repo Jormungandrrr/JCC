@@ -5,7 +5,7 @@
  */
 package opdracht.pkg1.Classes;
 
-import java.awt.Color;
+import javafx.scene.paint.Color;
 import java.awt.Point;
 
 /**
@@ -57,6 +57,10 @@ public class Oval extends DrawingItem {
         return true;
     }
     
+     @Override
+     public void paint(IPaintable paintable){
+     paintable.paintOval(this);
+    }
     
 
     public double getWidth() {

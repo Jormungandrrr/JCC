@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
-import java.awt.*;
+import java.awt.Point;
 import java.util.Arrays;
+import javafx.scene.paint.Color;
 /**
  *
  * @author Jorrit
@@ -14,7 +15,7 @@ public class Polygon extends DrawingItem{
     private Point[] vertices;
     private int weight;
 
-    public Polygon(Point anchor, Color color, Point[] vertices, int weight) {
+    public Polygon(Point anchor,Color color, Point[] vertices, int weight) {
         super(anchor, color);
         this.vertices = Arrays.copyOf(vertices, vertices.length);
         this.weight = weight;
@@ -55,7 +56,13 @@ public class Polygon extends DrawingItem{
         return true;
     }
     
-    
+     public void paint(IPaintable paintable){
+         paintable.setColor(this.getColor());
+         for (int i = 0; i < vertices.length-1;) {
+                 paintable.paintLine(vertices[i],vertices[i + 1],weight);
+                 i++;
+         }
+    }
 
     public Point[] getVertices() {
         return Arrays.copyOf(vertices, vertices.length);

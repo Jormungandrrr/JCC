@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
-import java.awt.*;
+import java.awt.Point;
 import java.util.Objects;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 /**
  *
  * @author Jorrit
@@ -54,7 +56,9 @@ public class PaintedText extends DrawingItem{
         return true;
     }
     
-    
+     public void paint(IPaintable paintable){
+     paintable.paintText(this);
+    }
 
     public String getContent() {
         return content;

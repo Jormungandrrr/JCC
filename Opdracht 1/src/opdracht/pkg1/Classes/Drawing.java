@@ -39,4 +39,7 @@ public class Drawing {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public void paint(JavaFXPaintable paintable) {
+    }
 }

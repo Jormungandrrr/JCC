@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
-import java.awt.*;
+import java.awt.Point;
 import java.util.Objects;
+import javafx.scene.paint.Color;
 /**
  *
  * @author Jorrit
@@ -30,7 +31,11 @@ import java.util.Objects;
         if (this.previousState != null) {
             this.anchor = this.previousState.anchor;
             this.color = this.previousState.color;
-        }
+        }   
+    }
+    
+    public void paint(IPaintable paintable){
+    paintable.setColor(this.color);
         
     }
     
@@ -56,6 +61,7 @@ import java.util.Objects;
         return hash;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

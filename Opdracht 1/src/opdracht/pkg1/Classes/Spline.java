@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
-import java.awt.*;
+import java.awt.Point;
 import java.util.Arrays;
+import javafx.scene.paint.Color;
 /**
  *
  * @author Jorrit
@@ -61,7 +62,14 @@ public class Spline extends DrawingItem{
         return true;
     }
     
+     public void paint(IPaintable paintable){
+     paintable.setColor(this.getColor());
+         for (int i = 0; i < points.length-1;) {
+                 paintable.paintLine(points[i],points[i + 1],weight);
+                 i++;
+         }
     
+    }
 
     public Point[] getPoints() {
         return Arrays.copyOf(points, points.length);

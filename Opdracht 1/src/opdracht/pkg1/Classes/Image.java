@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
-import java.awt.Color;
+
 import java.awt.Point;
 import java.io.*;
 import java.util.Objects;
+import javafx.scene.paint.Color;
 /**
  *
  * @author Jorrit
  */
 public class Image extends DrawingItem {
-    private File file;
+    public File file;
     private double size;
 
     public Image(Point anchor, Color color, File file, double size) {
@@ -56,7 +57,10 @@ public class Image extends DrawingItem {
         return true;
     }
 
-    
+    @Override
+     public void paint(IPaintable paintable){
+         paintable.paintImage(this);
+    }
     
     public File getFile() {
         return file;
