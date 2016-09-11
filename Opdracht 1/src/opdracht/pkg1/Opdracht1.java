@@ -53,7 +53,7 @@ public class Opdracht1 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Drawing Operations Test");
+        primaryStage.setTitle("Drawing");
         Group root = new Group();
         draw(gc);
         root.getChildren().add(canvas);
