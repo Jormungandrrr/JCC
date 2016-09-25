@@ -8,6 +8,8 @@ import java.awt.Point;
 import java.util.Objects;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Rectangle;
+import javafx.scene.text.Text;
 /**
  *
  * @author Jorrit
@@ -75,5 +77,13 @@ public class PaintedText extends DrawingItem{
 
     public void setFont(Font font) {
         this.font = font;
+    }
+
+    @Override
+    protected Rectangle BoundingBox() {
+        Text text = new Text(content);
+        int width = (int) text.getLayoutBounds().getWidth();
+        int height = (int) text.getLayoutBounds().getHeight();
+        return new Rectangle(this.getAnchor().x, this.getAnchor().y,width,height);
     }
 }

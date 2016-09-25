@@ -6,6 +6,7 @@
 package opdracht.pkg1.Classes;
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 /**
  *
@@ -77,5 +78,10 @@ public class Oval extends DrawingItem {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    @Override
+    protected Rectangle BoundingBox() {
+       return new Rectangle(this.getAnchor().x, this.getAnchor().y,(int)this.width,(int)this.height);
     }
 }

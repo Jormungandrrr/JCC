@@ -7,11 +7,12 @@ package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Objects;
 import java.awt.Color;
+import java.awt.Rectangle;
 /**
  *
  * @author Jorrit
  */
-    public class DrawingItem implements Comparable<DrawingItem>, java.io.Serializable{
+    public abstract class DrawingItem implements Comparable<DrawingItem>, java.io.Serializable{
     private Point anchor;
     private Color color;
     protected String type;
@@ -22,9 +23,26 @@ import java.awt.Color;
         this.color = color;
     }
     
+    protected abstract Rectangle BoundingBox();
+    
+    public boolean overlaps(DrawingItem other){
+        if (this.BoundingBox().intersects(other.BoundingBox())) 
+        {
+            return true;
+        }
+        else return false;
+        
+    }
+    public boolean insideBoundingBox(Point point){
+        if (this.BoundingBox().contains(point)) {
+            return true;
+        }
+        else return false;
+    }
+    
     public void setPreviousState(Point a, Color c)
     {
-        this.previousState = new DrawingItem(this.anchor,this.color);
+        //this.previousState = new DrawingItem(this.anchor,this.color);
     }
     
     public void previousState()

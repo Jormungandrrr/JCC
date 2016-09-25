@@ -25,7 +25,7 @@ public class Opdracht1 extends Application {
     /**
      * @param args the command line arguments
      */
-    private Drawing drawing = new Drawing("TestDrawing",300, 250);
+    private Drawing drawing = new Drawing("TestDrawing",300, 330);
     private final Canvas canvas =  new Canvas(drawing.getWidth(), drawing.getHeight());
     private final GraphicsContext gc = canvas.getGraphicsContext2D();
     private final JavaFXPaintable paintable = new JavaFXPaintable(gc);
@@ -38,10 +38,10 @@ public class Opdracht1 extends Application {
     
     private void itemsToDraw(){
     Point[] lineArray = {new Point(20,10),new Point(20,30),new Point(80,20),new Point(30,60)};
-    Point[] triArray = {new Point(150,300),new Point(200,100),new Point(100,200),new Point(200,300)};
+    Point[] triArray = {new Point(150,300),new Point(200,100),new Point(100,200),new Point(150,300)};
     System.out.println("Symbolen worden aangemaakt:");
-    drawing.drawitems.add(new Oval(new Point(10,100),Color.RED,10,10));
-    drawing.drawitems.add(new PaintedText(new Point(100,10),Color.GREEN,"Dit is de content. ",new Font("Serif", Font.ITALIC, 24)));
+    drawing.drawitems.add(new Oval(new Point(10,100),Color.RED,50,50));
+    drawing.drawitems.add(new PaintedText(new Point(120,10),Color.GREEN,"Dit is de content. ",new Font("Serif", Font.ITALIC, 24)));
     drawing.drawitems.add(new opdracht.pkg1.Classes.Polygon(new Point(5,5),Color.CYAN,triArray,10));
     drawing.drawitems.add(new Spline(new Point(30,1),Color.YELLOW,lineArray,10,10));
     drawing.drawitems.add(new opdracht.pkg1.Classes.Image(new Point(220,50),Color.MAGENTA,new File("C:\\dickbutt.png"),10.10));
@@ -50,14 +50,23 @@ public class Opdracht1 extends Application {
     
         
     public void draw(GraphicsContext gc){
-    //itemsToDraw();
+    itemsToDraw();
     //drawing = dbm.Load("TestDrawing");
     //drawing = ser.Load("testDrawing");
     System.out.println(drawing.getName() + " " + drawing.getWidth() + " " + drawing.getHeight());
     for(DrawingItem a: drawing.drawitems)
-        a.paint(paintable);   
+        for(DrawingItem o: drawing.drawitems){
+            if (a.overlaps(o) && a != o) {
+                System.out.println(a.toString() + " Overlapt met " + o.toString());
+                   
+            }
+            else{
+                a.paint(paintable);
+            }
+        }
+        
     
-    //Serialize();
+    //if (ser.Save(drawing)){System.out.println("Serialization succeeded");}
     //dbm.Save(drawing);
     }
 
@@ -69,13 +78,5 @@ public class Opdracht1 extends Application {
         root.getChildren().add(canvas);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-    }
-    
-        private void Serialize(){
-          if (ser.Save(drawing))
-          {
-              System.out.println("Serialization succeeded");
-          }
-          drawing = ser.Load("D0");
     }
 }

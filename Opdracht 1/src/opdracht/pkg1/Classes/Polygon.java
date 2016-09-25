@@ -7,6 +7,7 @@ package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Arrays;
 import java.awt.Color;
+import java.awt.Rectangle;
 /**
  *
  * @author Jorrit
@@ -75,6 +76,17 @@ public class Polygon extends DrawingItem{
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    @Override
+    protected Rectangle BoundingBox() {
+        int MaxX = 0;
+        int MaxY = 0;
+        for(Point v: this.vertices){
+            if (v.x >= MaxX) {MaxX = v.x;}
+            if (v.y >= MaxY) {MaxY = v.y;}
+        }
+        return new Rectangle(this.getAnchor().x, this.getAnchor().y,MaxX,MaxY);
     }
     
 }

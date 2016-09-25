@@ -7,6 +7,7 @@ package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Arrays;
 import java.awt.Color;
+import java.awt.Rectangle;
 /**
  *
  * @author Jorrit
@@ -90,5 +91,16 @@ public class Spline extends DrawingItem{
 
     public void setDegree(int degree) {
         this.degree = degree;
+    }
+
+    @Override
+    protected Rectangle BoundingBox() {
+          int MaxX = 0;
+        int MaxY = 0;
+        for(Point p: this.points){
+            if (p.x >= MaxX) {MaxX = p.x;}
+            if (p.y >= MaxY) {MaxY = p.y;}
+        }
+        return new Rectangle(this.getAnchor().x, this.getAnchor().y,MaxX,MaxY);
     }
 }

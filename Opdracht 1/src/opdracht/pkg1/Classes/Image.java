@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.io.*;
 import java.util.Objects;
 import java.awt.Color;
+import java.awt.Rectangle;
 /**
  *
  * @author Jorrit
@@ -77,5 +78,10 @@ public class Image extends DrawingItem {
 
     public void setSize(double size) {
         this.size = size;
+    }
+
+    @Override
+    protected Rectangle BoundingBox() {
+        return new Rectangle(this.getAnchor().x, this.getAnchor().y,(int)size,(int)size);
     }
 }
