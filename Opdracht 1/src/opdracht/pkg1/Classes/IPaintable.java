@@ -5,8 +5,8 @@
  */
 package opdracht.pkg1.Classes;
 
-import javafx.scene.paint.Color;
 import java.awt.Point;
+import java.awt.Color;
 
 /**
  *

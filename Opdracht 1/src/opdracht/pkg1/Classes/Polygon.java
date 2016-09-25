@@ -6,19 +6,20 @@
 package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Arrays;
-import javafx.scene.paint.Color;
+import java.awt.Color;
 /**
  *
  * @author Jorrit
  */
 public class Polygon extends DrawingItem{
-    private Point[] vertices;
+    public Point[] vertices;
     private int weight;
 
     public Polygon(Point anchor,Color color, Point[] vertices, int weight) {
         super(anchor, color);
         this.vertices = Arrays.copyOf(vertices, vertices.length);
         this.weight = weight;
+        this.type = "polygon";
         System.out.println(this.toString());
     }
     

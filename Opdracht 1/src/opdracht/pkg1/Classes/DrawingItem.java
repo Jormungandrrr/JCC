@@ -6,14 +6,15 @@
 package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Objects;
-import javafx.scene.paint.Color;
+import java.awt.Color;
 /**
  *
  * @author Jorrit
  */
-    public class DrawingItem implements Comparable<DrawingItem>{
+    public class DrawingItem implements Comparable<DrawingItem>, java.io.Serializable{
     private Point anchor;
     private Color color;
+    protected String type;
     private DrawingItem previousState;
 
     public DrawingItem(Point anchor, Color color) {

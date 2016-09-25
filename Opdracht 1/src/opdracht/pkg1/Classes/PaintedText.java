@@ -6,8 +6,8 @@
 package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Objects;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import java.awt.Color;
+import java.awt.Font;
 /**
  *
  * @author Jorrit
@@ -20,6 +20,7 @@ public class PaintedText extends DrawingItem{
         super(anchor, color);
         this.content = content;
         this.font = font;
+        this.type = "text";
         System.out.println(this.toString());
     }
     @Override

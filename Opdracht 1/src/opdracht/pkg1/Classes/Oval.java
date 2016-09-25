@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package opdracht.pkg1.Classes;
-
-import javafx.scene.paint.Color;
+import java.awt.Color;
 import java.awt.Point;
 
 /**
@@ -20,6 +19,7 @@ public class Oval extends DrawingItem {
         super(anchor, color);
         this.width = width;
         this.height = height;
+        this.type = "oval";
         System.out.println(this.toString());
     }
     

@@ -6,13 +6,13 @@
 package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.util.Arrays;
-import javafx.scene.paint.Color;
+import java.awt.Color;
 /**
  *
  * @author Jorrit
  */
 public class Spline extends DrawingItem{
-    private Point[] points;
+    public Point[] points;
     private int weight;
     private int degree;
 
@@ -21,6 +21,7 @@ public class Spline extends DrawingItem{
         this.points = Arrays.copyOf(points, points.length);
         this.weight = weight;
         this.degree = degree;
+        this.type = "spline";
         System.out.println(this.toString());
     }
     

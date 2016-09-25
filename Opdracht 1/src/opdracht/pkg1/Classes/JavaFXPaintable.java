@@ -7,7 +7,8 @@ package opdracht.pkg1.Classes;
 
 import java.awt.Point;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
+import java.awt.Color;
+import static javafx.scene.paint.Color.color;
 /**
  *
  * @author Jorrit
@@ -19,12 +20,19 @@ public class JavaFXPaintable implements IPaintable{
         this.gc = gc;
     }
     
-    
+    private javafx.scene.paint.Color convertedColor(Color color){
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+        int a = color.getAlpha();
+        double opacity = a / 255.0 ;
+        return javafx.scene.paint.Color.rgb(r, g, b, opacity);
+    }
     
     @Override
     public void setColor(Color color) {
-    gc.setFill(color);
-    gc.setStroke(color);
+    gc.setFill(convertedColor(color));
+    gc.setStroke(convertedColor(color));
     }
 
     @Override

@@ -10,11 +10,20 @@ import java.util.*;
  *
  * @author Jorrit
  */
-public class Drawing {
+public class Drawing implements java.io.Serializable {
     private String name;
     private int width;
     private int height;
     public List<DrawingItem> drawitems = new ArrayList<>();
+
+    public Drawing(String name, int width, int height) {
+        this.name = name;
+        this.width = width;
+        this.height = height;
+    }
+    public Drawing() {
+    }
+    
     //Get setters
     public String getName() {
         return name;

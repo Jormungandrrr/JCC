@@ -8,7 +8,7 @@ package opdracht.pkg1.Classes;
 import java.awt.Point;
 import java.io.*;
 import java.util.Objects;
-import javafx.scene.paint.Color;
+import java.awt.Color;
 /**
  *
  * @author Jorrit
@@ -21,6 +21,7 @@ public class Image extends DrawingItem {
         super(anchor, color);
         this.file = file;
         this.size = size;
+        this.type = "image";
         System.out.println(this.toString());
     }
     @Override
